@@ -1,0 +1,518 @@
+clone -x DesignerAttributeDefinition'WillowGame.Default__DesignerAttributeDefinition' DesignerAttributeDefinition'BASEOBJ_Stack_Count'
+clone -x DesignerAttributeContextResolver'WillowGame.Default__DesignerAttributeContextResolver' DesignerAttributeContextResolver'BASEOBJ_Stack_Count:DesignerAttributeContextResolver_0'
+clone -x Engine.Default__AttributeDefinition BASEOBJ_Stack_Count_Restriction
+clone -x GearboxFramework.Default__ConditionalAttributeValueResolver BASEOBJ_Stack_Count_Restriction:ConditionalAttributeValueResolver_0
+clone -x GearboxFramework.Default__NoContextNeededAttributeContextResolver BASEOBJ_Stack_Count_Restriction:NoContextNeededAttributeContextResolver_1
+clone -x GearboxFramework.Default__AttributeExpressionEvaluator BASEOBJ_Stack_Count_Evaluator
+clone -x BehaviorProviderDefinition'GD_Shields.Accessory.Accessory8_Juggernaut_Legendary:BehaviorProviderDefinition_0' BehaviorProviderDefinition'BASEOBJ:BehaviorProviderDefinition_1'
+clone -x Behavior_ActivateSkill'GD_Shields.Accessory.Accessory8_Juggernaut_Legendary:BehaviorProviderDefinition_0.Behavior_ActivateSkill_107' Behavior_ActivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_ActivateSkill_107'
+clone -x Behavior_ActivateSkill'GD_Shields.Accessory.Accessory8_Juggernaut_Legendary:BehaviorProviderDefinition_0.Behavior_ActivateSkill_108' Behavior_ActivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_ActivateSkill_108'
+clone -x Behavior_DeactivateSkill'GD_Shields.Accessory.Accessory8_Juggernaut_Legendary:BehaviorProviderDefinition_0.Behavior_DeactivateSkill_142' Behavior_DeactivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_DeactivateSkill_142'
+clone -x Behavior_DeactivateSkill'GD_Shields.Accessory.Accessory8_Juggernaut_Legendary:BehaviorProviderDefinition_0.Behavior_DeactivateSkill_143' Behavior_DeactivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_DeactivateSkill_143'
+clone -x SkillDefinition'GD_Shields.Skills.Juggernaut_Shield_Skill_LegendarySlow' SkillDefinition'BASEOBJBase'
+clone -x SkillDefinition'GD_Shields.Skills.Juggernaut_Shield_Skill_LegendaryFast' SkillDefinition'BASEOBJEffect'
+clone -x GD_Orchid_BossWeapons.Skills.Skill_Evie:BehaviorProviderDefinition_0 BASEOBJBase:BehaviorProviderDefinition_0
+clone -x GD_Orchid_BossWeapons.Skills.Skill_Evie:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117 BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117
+clone -x GD_Orchid_BossWeapons.Skills.Skill_Evie:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117.SkillDefinition_0 BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117.SkillDefinition_0
+
+set BASEOBJ_Stack_Count ContextResolverChain
+(
+    DesignerAttributeContextResolver'BASEOBJ_Stack_Count:DesignerAttributeContextResolver_0'
+)
+
+
+set BASEOBJ_Stack_Count_Restriction ContextResolverChain
+(
+    NoContextNeededAttributeContextResolver'BASEOBJ_Stack_Count_Restriction:NoContextNeededAttributeContextResolver_1'
+)
+
+
+set BASEOBJ_Stack_Count_Restriction ValueResolverChain
+(
+    ConditionalAttributeValueResolver'BASEOBJ_Stack_Count_Restriction:ConditionalAttributeValueResolver_0'
+)
+
+
+set BASEOBJ_Stack_Count_Restriction:ConditionalAttributeValueResolver_0 ValueExpressions
+(
+    bEnabled = True,
+    ConditionalExpressionList =
+    (
+        (
+            BaseValueIfTrue =
+            (
+                BaseValueConstant = TRUEMAXSTACKS.000000,
+                BaseValueAttribute = None,
+                InitializationDefinition = None,
+                BaseValueScaleConstant = 1.000000
+            ),
+            Expressions =
+            (
+                (
+                    AttributeOperand1 = DesignerAttributeDefinition'BASEOBJ_Stack_Count',
+                    ComparisonOperator = OPERATOR_GreaterThanOrEqual,
+                    Operand2Usage = OPERAND_PreferAttribute,
+                    AttributeOperand2 = None,
+                    ConstantOperand2 = TRUEMAXSTACKS.000000
+                )
+            )
+        )
+    ),
+    DefaultBaseValue =
+    (
+        BaseValueConstant = 0.000000,
+        BaseValueAttribute = DesignerAttributeDefinition'BASEOBJ_Stack_Count',
+        InitializationDefinition = None,
+        BaseValueScaleConstant = 1.000000
+    )
+)
+
+
+set BASEOBJ_Stack_Count_Evaluator Expression
+(
+    AttributeOperand1 = DesignerAttributeDefinition'BASEOBJ_Stack_Count',
+    ComparisonOperator = OPERATOR_LessThanOrEqual,
+    Operand2Usage = OPERAND_PreferAttribute,
+    AttributeOperand2 = None,
+    ConstantOperand2 = FAKEMAXSTACKS.000000
+)
+
+
+set BASEOBJ BehaviorProviderDefinition BehaviorProviderDefinition'BASEOBJ:BehaviorProviderDefinition_1'
+set BASEOBJ:BehaviorProviderDefinition_1 BehaviorSequences
+(
+    (
+        BehaviorSequenceName = "Default",
+        bEnabledOnSpawn = True,
+        bSequenceEnabledMutex = False,
+        CustomEnableCondition = None,
+        EventData = ,
+        EventData2 =
+        (
+            (
+                UserData =
+                (
+                    EventName = "OnUnequipped",
+                    bEnabled = True,
+                    bReplicate = False,
+                    MaxTriggerCount = 0,
+                    ReTriggerDelay = 0.000000,
+                    FilterObject = None
+                ),
+                OutputVariables =
+                (
+                    ArrayIndexAndLength = 262145
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 131073
+                )
+            ),
+            (
+                UserData =
+                (
+                    EventName = "OnEquipped",
+                    bEnabled = True,
+                    bReplicate = False,
+                    MaxTriggerCount = 0,
+                    ReTriggerDelay = 0.000000,
+                    FilterObject = None
+                ),
+                OutputVariables =
+                (
+                    ArrayIndexAndLength = 327681
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 196609
+                )
+            )
+        ),
+        BehaviorData = ,
+        BehaviorData2 =
+        (
+            (
+                Behavior = Behavior_ActivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_ActivateSkill_107',
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 1
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 1
+                )
+            ),
+            (
+                Behavior = Behavior_ActivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_ActivateSkill_108',
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 65537
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 0
+                )
+            ),
+            (
+                Behavior = Behavior_DeactivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_DeactivateSkill_142',
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 131073
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 65537
+                )
+            ),
+            (
+                Behavior = Behavior_DeactivateSkill'BASEOBJ:BehaviorProviderDefinition_1.Behavior_DeactivateSkill_143',
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 196609
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 0
+                )
+            )
+        ),
+        VariableData =
+        (
+            (
+                Name = ,
+                Type = BVAR_Object
+            )
+        ),
+        ConsolidatedOutputLinkData =
+        (
+            (
+                LinkIdAndLinkedBehavior = -16777215,
+                ActivateDelay = 0.000000
+            ),
+            (
+                LinkIdAndLinkedBehavior = -16777213,
+                ActivateDelay = 0.000000
+            ),
+            (
+                LinkIdAndLinkedBehavior = 2,
+                ActivateDelay = 0.000000
+            ),
+            (
+                LinkIdAndLinkedBehavior = 0,
+                ActivateDelay = 0.000000
+            )
+        ),
+        ConsolidatedVariableLinkData =
+        (
+            (
+                PropertyName = "Context",
+                VariableLinkType = BVARLINK_Context,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 1
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "Context",
+                VariableLinkType = BVARLINK_Context,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 65537
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "Context",
+                VariableLinkType = BVARLINK_Context,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 131073
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "Context",
+                VariableLinkType = BVARLINK_Context,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 196609
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "Instigator",
+                VariableLinkType = BVARLINK_Output,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 262145
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "Instigator",
+                VariableLinkType = BVARLINK_Output,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 327681
+                ),
+                CachedProperty = None
+            )
+        ),
+        ConsolidatedLinkedVariables = (0,0,0,0,0,0)
+    )
+)
+
+
+set BASEOBJ:BehaviorProviderDefinition_1.Behavior_ActivateSkill_108 SkillToActivate SkillDefinition'BASEOBJBase'
+set BASEOBJ:BehaviorProviderDefinition_1.Behavior_DeactivateSkill_143 SkillToDeactivate SkillDefinition'BASEOBJBase'
+set BASEOBJ:BehaviorProviderDefinition_1.Behavior_ActivateSkill_107 SkillToActivate SkillDefinition'BASEOBJEffect'
+set BASEOBJ:BehaviorProviderDefinition_1.Behavior_DeactivateSkill_142 SkillToDeactivate SkillDefinition'BASEOBJEffect'
+set BASEOBJEffect DamageEvents ()
+set BASEOBJEffect BehaviorProviderDefinition None
+set BASEOBJEffect SkillEffectDefinitions
+(
+    (
+        AttributeToModify = AttributeDefinition'D_Attributes.Weapon.WeaponDamage',
+        bIncludeDuelingTargets = False,
+        bIncludeSelfAsTarget = False,
+        bOnlyEffectTargetsInRange = False,
+        bExcludeNonPlayerCharacters = False,
+        EffectTarget = TARGET_Self,
+        TargetInstanceDataName = ,
+        TargetCriteria = CRITERIA_None,
+        ModifierType = MT_Scale,
+        BaseModifierValue =
+        (
+            BaseValueConstant = 0.000000,
+            BaseValueAttribute = AttributeDefinition'BASEOBJ_Stack_Count_Restriction',
+            InitializationDefinition = None,
+            BaseValueScaleConstant = 0.005000
+        ),
+        GradeToStartApplyingEffect = 1,
+        PerGradeUpgradeInterval = 1,
+        PerGradeUpgrade =
+        (
+            BaseValueConstant = 0.000000,
+            BaseValueAttribute = None,
+            InitializationDefinition = None,
+            BaseValueScaleConstant = 1.000000
+        ),
+        BonusUpgradeList =
+    )
+)
+
+
+set BASEOBJEffect CustomStackCount AttributeDefinition'BASEOBJ_Stack_Count_Restriction'
+set BASEOBJEffect SkillIcon SwfMovie'TRACKEDICON'
+set BASEOBJEffect TrackedSkillHudSlot SKILLHUDSLOT
+set BASEOBJEffect TrackedSkillType TRACKEDSKILL_Respond
+set BASEOBJEffect SkillConstraints ()
+set BASEOBJBase SkillEffectDefinitions ()
+set BASEOBJBase DamageEvents
+(
+    (
+        EventType = SDE_DamagedEnemy,
+        EventConstraints = ,
+        EventName = "SKILLEVENT"
+    )
+)
+
+
+set BASEOBJBase BehaviorProviderDefinition BehaviorProviderDefinition'BASEOBJBase:BehaviorProviderDefinition_0'
+set BASEOBJBase SkillConstraints ()
+set BASEOBJBase:BehaviorProviderDefinition_0 BehaviorSequences
+(
+    (
+        BehaviorSequenceName = "Default",
+        bEnabledOnSpawn = True,
+        bSequenceEnabledMutex = False,
+        CustomEnableCondition = None,
+        EventData = ,
+        EventData2 =
+        (
+            (
+                UserData =
+                (
+                    EventName = "SKILLEVENT",
+                    bEnabled = True,
+                    bReplicate = False,
+                    MaxTriggerCount = 0,
+                    ReTriggerDelay = 0.000000,
+                    FilterObject = None
+                ),
+                OutputVariables =
+                (
+                    ArrayIndexAndLength = 131073
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 1
+                )
+            ),
+            (
+                UserData =
+                (
+                    EventName = "GeneralKill",
+                    bEnabled = True,
+                    bReplicate = False,
+                    MaxTriggerCount = 0,
+                    ReTriggerDelay = 0.000000,
+                    FilterObject = None
+                ),
+                OutputVariables =
+                (
+                    ArrayIndexAndLength = 196609
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 65537
+                )
+            )
+        ),
+        BehaviorData = ,
+        BehaviorData2 =
+        (
+            (
+                Behavior = Behavior_AttributeEffect'BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117',
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 1
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 0
+                )
+            ),
+            (
+                Behavior = Behavior_AttributeEffect'BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117',
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 65537
+                ),
+                OutputLinks =
+                (
+                    ArrayIndexAndLength = 0
+                )
+            )
+        ),
+        VariableData =
+        (
+            (
+                Name = ,
+                Type = BVAR_Object
+            )
+        ),
+        ConsolidatedOutputLinkData =
+        (
+            (
+                LinkIdAndLinkedBehavior = 0,
+                ActivateDelay = 0.000000
+            ),
+            (
+                LinkIdAndLinkedBehavior = 1,
+                ActivateDelay = 0.000000
+            )
+        ),
+        ConsolidatedVariableLinkData =
+        (
+            (
+                PropertyName = "Context",
+                VariableLinkType = BVARLINK_Context,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 1
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "Context",
+                VariableLinkType = BVARLINK_Context,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 65537
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "SkillInstigator",
+                VariableLinkType = BVARLINK_Output,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 131073
+                ),
+                CachedProperty = None
+            ),
+            (
+                PropertyName = "SkillInstigator",
+                VariableLinkType = BVARLINK_Output,
+                ConnectionIndex = 0,
+                LinkedVariables =
+                (
+                    ArrayIndexAndLength = 196609
+                ),
+                CachedProperty = None
+            )
+        ),
+        ConsolidatedLinkedVariables = (0,0,0,0)
+    )
+)
+
+
+set BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117 AttributeEffect SkillDefinition'BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117.SkillDefinition_0'
+set BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117.SkillDefinition_0 SkillEffectDefinitions
+(
+    (
+        AttributeToModify = DesignerAttributeDefinition'BASEOBJ_Stack_Count',
+        bIncludeDuelingTargets = False,
+        bIncludeSelfAsTarget = False,
+        bOnlyEffectTargetsInRange = False,
+        bExcludeNonPlayerCharacters = False,
+        EffectTarget = TARGET_Self,
+        TargetInstanceDataName = ,
+        TargetCriteria = CRITERIA_None,
+        ModifierType = MT_PostAdd,
+        BaseModifierValue =
+        (
+            BaseValueConstant = 1.000000,
+            BaseValueAttribute = None,
+            InitializationDefinition = None,
+            BaseValueScaleConstant = 1.000000
+        ),
+        GradeToStartApplyingEffect = 1,
+        PerGradeUpgradeInterval = 1,
+        PerGradeUpgrade =
+        (
+            BaseValueConstant = 1.000000,
+            BaseValueAttribute = None,
+            InitializationDefinition = None,
+            BaseValueScaleConstant = 0.000000
+        ),
+        BonusUpgradeList =
+    )
+)
+
+
+set BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117.SkillDefinition_0 SkillConstraints
+(
+    (
+        bApplyConstraintOnActivatation = True,
+        bApplyConstraintWhileActive = False,
+        bApplyConstraintWhilePaused = False,
+        OnFailure = SKILL_Deactivated,
+        Evaluator = AttributeExpressionEvaluator'BASEOBJ_Stack_Count_Evaluator',
+        EvaluatorDefinitions =
+    )
+)
+
+
+set BASEOBJBase:BehaviorProviderDefinition_0.Behavior_AttributeEffect_117.SkillDefinition_0 InitialDuration SKILLDURATION.000000
